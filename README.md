@@ -7,7 +7,7 @@ I am solving problems from LeetCode,Neetcode,CodeChef following a pattern based 
 ## Topics
 
 | Topic                                               Problems Solved 
-| Two Pointers                                              0 
+| Two Pointers                                              4
 | Sliding Window                                            0 
 | Binary Search                                             0 
 | Stack and Queue                                           0 
