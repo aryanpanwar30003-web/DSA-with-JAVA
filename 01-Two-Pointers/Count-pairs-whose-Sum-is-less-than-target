@@ -1,0 +1,40 @@
+
+/*
+ * Problem: Count Pairs Whose Sum Is Less Than Target
+ * Pattern: Sorting + Two Pointers
+ * Difficulty: Easy
+ *
+ * Approach:
+ * First, sort the list in ascending order.
+ * Initialize two pointers, one at the beginning
+ * and the other at the end of the list.
+ *
+ * If the sum of the elements at both pointers is
+ * less than the target, all pairs formed by the
+ * left element and elements between the pointers
+ * are valid. Add (j - i) to the count and move
+ * the left pointer forward.
+ *
+ * Otherwise, move the right pointer backward.
+ * Continue until both pointers meet.
+ *
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n) auxiliary space due to sorting 
+ */
+
+class Solution {
+    public int countPairs(List<Integer> nums, int target) {
+        Collections.sort(nums);
+        int i = 0;
+        int j = nums.size()-1;
+        int count =0;
+        while(i<j){
+            int sum  =  nums.get(i) + nums.get(j);
+            if(sum<target){
+                count = count +(j-i);
+                i++;
+            }else j--;
+        }
+        return count;
+    }
+}
