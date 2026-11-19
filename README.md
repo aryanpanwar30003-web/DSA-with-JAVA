@@ -7,9 +7,6 @@ I am solving problems from LeetCode,Neetcode,CodeChef following a pattern based 
 ## Topics
 
 | Topic                                               Problems Solved 
-| Arrays                                                    0 
-| Strings                                                   0 
-| Hashing                                                   0 
 | Two Pointers                                              0 
 | Sliding Window                                            0 
 | Binary Search                                             0 
