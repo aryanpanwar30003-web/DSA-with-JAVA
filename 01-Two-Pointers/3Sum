@@ -1,0 +1,68 @@
+
+/*
+ * Problem: 3Sum
+ * LeetCode: 15
+ * Difficulty: Medium
+ * Pattern: Sorting + Two Pointers
+ *
+ * Approach:
+ * First, sort the array in ascending order.
+ *
+ * Use an outer loop to fix the first element of
+ * each potential triplet.
+ *
+ * For every fixed element, initialize two pointers:
+ * one immediately after the fixed element and the
+ * other at the end of the array.
+ *
+ * Calculate the sum of the three elements.
+ *
+ * If the sum is less than zero, move the left pointer
+ * forward to increase the sum.
+ *
+ * If the sum is greater than zero, move the right
+ * pointer backward to decrease the sum.
+ *
+ * If the sum equals zero, add the triplet to the
+ * result list and move both pointers.
+ *
+ * Skip duplicate elements to ensure that every
+ * triplet in the result is unique.
+ *
+ * Time Complexity: O(n^2)
+ * Auxiliary Space: O(log n) for sorting stack
+ * Output Space: O(k), where k is the number of triplets
+ */
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> resultList = new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i =0;i<nums.length-2;i++){
+            //skip first pointer's  duplicate elements 
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            int j = i+1;
+            int k = nums.length-1;
+            while(j<k){
+                int sum = nums[i] +nums[j]+nums[k];
+                if(sum<0) j++;
+                else if (sum>0) k--;
+                else {
+                    List<Integer> triplet = new ArrayList<>();
+                    triplet.add(nums[i]);
+                    triplet.add(nums[j]);
+                    triplet.add(nums[k]);
+
+                    resultList.add(triplet);
+                    j++;
+                    k--;
+
+                    //skip second pointer's duplicates
+                    while(j<k && nums[j]==nums[j-1]) j++;
+                    while(j<k && nums[k] == nums[k+1]) k--;
+                }
+            }
+
+        }
+        return resultList;
+    }
+}
