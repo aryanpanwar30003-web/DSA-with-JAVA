@@ -1,0 +1,41 @@
+
+/*
+ * Problem: Two Sum
+ * LeetCode: 1
+ * Difficulty: Easy
+ * Pattern: HashMap
+ *
+ * Approach:
+ * Use a HashMap to store previously visited numbers
+ * along with their original indices.
+ *
+ * For each element, calculate its complement by
+ * subtracting the current number from the target.
+ *
+ * Check whether the complement already exists
+ * in the HashMap. If it does, return the indices
+ * of the current number and its complement.
+ *
+ * Otherwise, store the current number and its
+ * index in the HashMap.
+ *
+ * Time Complexity: O(n) average
+ * Space Complexity: O(n)
+ */
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map = new HashMap();
+      
+        
+        for(int i =0;i<nums.length;i++){
+            int needed  = target - nums[i];
+            if (map.containsKey(needed)){
+                return new int[] {i,map.get(needed)};
+            }else {
+                map.put(nums[i],i);
+            }
+            
+        }
+        return new int[] {};
+    }
+}
